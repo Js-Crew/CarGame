@@ -7,4 +7,20 @@ body {
   align-items: center;
 }
 
+#game {
+  width: 60%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #001927e0;
+  border-radius: 16px;
+  margin: 3% 0;
+}
 
+
+#game > h2{
+    color: white;
+    font-size: 30px;
+}
