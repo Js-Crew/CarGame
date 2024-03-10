@@ -97,7 +97,7 @@ function moveRoadLines() {
     });
 }
 
-setInterval(moveRoadLines , 50)
+setInterval(moveRoadLines , 20)
 
 // bound of function || enemy to player
 function onCollision(a,b){
@@ -114,6 +114,7 @@ function moveEnemyCars(){
     enemyCars.forEach((item)=> {
 
         if(onCollision(carElement, item)){
+        
             window.open("index.html", "_blank");
         }
         if(item.y >= 750){
@@ -125,7 +126,7 @@ function moveEnemyCars(){
     });
 }  
 
-setInterval(moveEnemyCars , 50)
+setInterval(moveEnemyCars , 20)
 
 
 

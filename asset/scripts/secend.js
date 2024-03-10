@@ -114,7 +114,6 @@ function moveEnemyCars(){
     enemyCars.forEach((item)=> {
 
         if(onCollision(carElement, item)){
-            alert('you is gameOver')
             window.open("index.html", "_blank");
         }
         if(item.y >= 750){
