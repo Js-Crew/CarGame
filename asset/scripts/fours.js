@@ -115,7 +115,7 @@ function moveEnemyCars(){
 
         if(onCollision(carElement, item)){
         
-            window.open("index.html", "_blank");
+            window.open("index.html", "_self");
         }
         if(item.y >= 750){
             item.y = -300;
