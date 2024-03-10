@@ -11,7 +11,7 @@ body {
   width: 60%;
   height: 600px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   background-color: #001927e0;
@@ -22,5 +22,41 @@ body {
 
 #game > h2{
     color: white;
-    font-size: 30px;
+    font-size: 50px;
+}
+#game > h4{
+    color: white;
+    font-size: 25px;
+}
+#btns{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+#btns > button {
+  width: 20%;
+  height: 45px;
+  border: none;
+  outline: none;
+  border-radius: 9px;
+  color: #001927;
+  font-weight: 600;
+}
+#btns > button:hover {
+transform: scale(1.1);
+z-index: 2;
+color: white;
+transition-duration: 1s;
+}
+#btns > button:first-of-type {
+background-color: rgba(173, 238, 173, 0.484);
+}
+#btns > button:nth-child(2) {
+background-color: rgba(201, 240, 94, 0.484);
+}
+#btns > button:last-of-type {
+background-color: rgba(239, 167, 84, 0.484);
 }

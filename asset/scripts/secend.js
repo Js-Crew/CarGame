@@ -12,7 +12,7 @@ for (let i = 0; i < 5; i++) {
 
 let carElement = document.createElement("div");
 carElement.setAttribute("class", "car");
-carElement.style.top ='50px'
+carElement.style.top ='340px'
 gameArea.appendChild(carElement);
 
 player.x = carElement.offsetLeft;
@@ -49,7 +49,7 @@ console.log(carElement);
 
   switch (key) {
     case "ArrowUp":
-      y -=  5
+    //   y -=  5
       break;
 
     case "ArrowDown":
@@ -108,6 +108,7 @@ function moveEnemyCars(){
     enemyCars.forEach((item)=> {
 
         if(onCollision(carElement, item)){
+            alert('you is gameOver')
             window.open("index.html", "_blank");
         }
         if(item.y >= 750){
