@@ -1,7 +1,12 @@
+// select game Area
 let gameArea = document.getElementById("gameArea");
 
+
+// define player
 let player = { speed: 7, score: 0 };
 
+
+// create line 
 for (let i = 0; i < 5; i++) {
   let roadLineElement = document.createElement("div");
   roadLineElement.setAttribute("class", "roadLines");
@@ -9,15 +14,15 @@ for (let i = 0; i < 5; i++) {
   roadLineElement.style.top = roadLineElement.y + "px";
   gameArea.appendChild(roadLineElement);
 }
-
+// create player = car
 let carElement = document.createElement("div");
 carElement.setAttribute("class", "car");
 carElement.style.top ='340px'
 gameArea.appendChild(carElement);
-
+// get x and y player
 player.x = carElement.offsetLeft;
 player.y = carElement.offsetTop;
-
+// create enemy
 for (let i = 0; i < 3; i++) {
   let enemyCar = document.createElement("div");
   enemyCar.setAttribute("class", "enemyCar");
@@ -27,9 +32,7 @@ for (let i = 0; i < 3; i++) {
   enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
   gameArea.appendChild(enemyCar);
 }
-
-document.addEventListener("keydown", gamePlayer);
-
+// create random color for enemy
 function randomColor(){
     function c(){
         let hex = Math.floor(Math.random() * 256).toString(16);
@@ -38,10 +41,12 @@ function randomColor(){
     return "#"+c()+c()+c();
 }
 
+// define event key
+document.addEventListener("keydown", gamePlayer);
+// define move player
 function gamePlayer(e) {
     let road = gameArea.getBoundingClientRect()
     console.log(road);
-
   let key = e.key;
   let x = parseInt(carElement.style.left) || 0;
   let y = parseInt(carElement.style.top) || 0;
@@ -77,9 +82,10 @@ console.log(carElement);
   carElement.style.left = x + "px";
   carElement.style.top = y + "px";
 
-  //   boundOf()
 }
 
+
+// move rode line
 function moveRoadLines() {
     let roadLines = document.querySelectorAll('.roadLines');
     roadLines.forEach((item)=> {
@@ -93,7 +99,7 @@ function moveRoadLines() {
 
 setInterval(moveRoadLines , 100)
 
-
+// bound of function || enemy to player
 function onCollision(a,b){
     aRect = a.getBoundingClientRect();
     bRect = b.getBoundingClientRect();
@@ -102,7 +108,7 @@ function onCollision(a,b){
         (aRect.right <  bRect.left) || (aRect.left >  bRect.right)); 
 }
 
-
+// move enemy car in game Area
 function moveEnemyCars(){
     let enemyCars = document.querySelectorAll('.enemyCar');
     enemyCars.forEach((item)=> {
@@ -121,3 +127,6 @@ function moveEnemyCars(){
 }  
 
 setInterval(moveEnemyCars , 100)
+
+
+
