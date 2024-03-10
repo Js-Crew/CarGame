@@ -118,6 +118,6 @@ function moveEnemyCars(){
         item.y += player.speed;
         item.style.top = item.y + "px";
     });
-} 
+}  
 
 setInterval(moveEnemyCars , 100)

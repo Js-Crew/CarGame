@@ -1,7 +1,6 @@
 body {
   background-image: url("../../image/Mobile\ Game\ Design_\ Real\ Multiplayer\ Racer.jpg");
-
-  /* background-position: center center; */
+  user-select: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,16 +18,15 @@ body {
   margin: 3% 0;
 }
 
-
-#game > h2{
-    color: white;
-    font-size: 50px;
+#game > h2 {
+  color: white;
+  font-size: 50px;
 }
-#game > h4{
-    color: white;
-    font-size: 25px;
+#game > h4 {
+  color: white;
+  font-size: 25px;
 }
-#btns{
+#btns {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -46,17 +44,17 @@ body {
   font-weight: 600;
 }
 #btns > button:hover {
-transform: scale(1.1);
-z-index: 2;
-color: white;
-transition-duration: 1s;
+  transform: scale(1.1);
+  z-index: 2;
+  color: white;
+  transition-duration: 1s;
 }
 #btns > button:first-of-type {
-background-color: rgba(173, 238, 173, 0.484);
+  background-color: rgba(173, 238, 173, 0.484);
 }
 #btns > button:nth-child(2) {
-background-color: rgba(201, 240, 94, 0.484);
+  background-color: rgba(201, 240, 94, 0.484);
 }
 #btns > button:last-of-type {
-background-color: rgba(239, 167, 84, 0.484);
+  background-color: rgba(239, 167, 84, 0.484);
 }
