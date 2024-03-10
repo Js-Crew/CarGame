@@ -1,0 +1,39 @@
+body {
+    background-image: url("../../image/Must\ Deliver\ Backgrounds.jpg");
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  
+  #gameArea {
+    width: 400px;
+    height: 100vh;
+    background: #2d3436;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-right: 7px dashed #c8d6e5;
+    border-left: 7px dashed #c8d6e5;
+  }
+  
+  
+  .car, .enemyCar{
+    width: 50px;
+    height: 70px;
+    background: rgb(255, 251, 0);
+    position: absolute;
+    bottom: 120px;
+    background-image: url('../../image/Annotation_2024-03-10_235235-transformed_prev_ui.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .roadLines{
+    width: 10px;
+    height: 100px;
+    position: absolute;
+    background: white;
+    margin-left: 195px;   /* show line in center = (gameArea.width / 2) - (roadLines.width / 2) */
+  }
+  
