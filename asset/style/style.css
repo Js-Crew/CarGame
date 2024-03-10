@@ -1,1 +1,10 @@
+body {
+  background-image: url("../../image/Mobile\ Game\ Design_\ Real\ Multiplayer\ Racer.jpg");
+
+  /* background-position: center center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
