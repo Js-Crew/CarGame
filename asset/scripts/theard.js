@@ -1,12 +1,10 @@
 // select game Area
 let gameArea = document.getElementById("gameArea");
 
-
 // define player
 let player = { speed: 10, score: 0 };
 
-
-// create line 
+// create line
 for (let i = 0; i < 5; i++) {
   let roadLineElement = document.createElement("div");
   roadLineElement.setAttribute("class", "roadLines");
@@ -17,7 +15,7 @@ for (let i = 0; i < 5; i++) {
 // create player = car
 let carElement = document.createElement("div");
 carElement.setAttribute("class", "car");
-carElement.style.top ='340px'
+carElement.style.top = "340px";
 gameArea.appendChild(carElement);
 // get x and y player
 player.x = carElement.offsetLeft;
@@ -33,28 +31,28 @@ for (let i = 0; i < 3; i++) {
   gameArea.appendChild(enemyCar);
 }
 // create random color for enemy
-function randomColor(){
-    function c(){
-        let hex = Math.floor(Math.random() * 256).toString(16);
-        return ("0"+ String(hex)).substr(-2);
-    }
-    return "#"+c()+c()+c();
+function randomColor() {
+  function c() {
+    let hex = Math.floor(Math.random() * 256).toString(16);
+    return ("0" + String(hex)).substr(-2);
+  }
+  return "#" + c() + c() + c();
 }
 
 // define event key
 document.addEventListener("keydown", gamePlayer);
 // define move player
 function gamePlayer(e) {
-    let road = gameArea.getBoundingClientRect()
-    console.log(road);
+  let road = gameArea.getBoundingClientRect();
+  console.log(road);
   let key = e.key;
   let x = parseInt(carElement.style.left) || 0;
   let y = parseInt(carElement.style.top) || 0;
-console.log(carElement);
+  console.log(carElement);
 
   switch (key) {
     case "ArrowUp":
-    //   y -=  5
+      //   y -=  5
       break;
 
     case "ArrowDown":
@@ -81,51 +79,60 @@ console.log(carElement);
   console.log(y);
   carElement.style.left = x + "px";
   carElement.style.top = y + "px";
-
 }
-
 
 // move rode line
 function moveRoadLines() {
-    let roadLines = document.querySelectorAll('.roadLines');
-    roadLines.forEach((item)=> {
-        if(item.y >= 700){
-            item.y -= 750;
-        }
-        item.y += player.speed;
-        item.style.top = item.y + "px";
-    });
+  let roadLines = document.querySelectorAll(".roadLines");
+  roadLines.forEach((item) => {
+    if (item.y >= 700) {
+      item.y -= 750;
+    }
+    item.y += player.speed;
+    item.style.top = item.y + "px";
+  });
 }
 
-setInterval(moveRoadLines , 50)
+setInterval(moveRoadLines, 50);
 
 // bound of function || enemy to player
-function onCollision(a,b){
-    aRect = a.getBoundingClientRect();
-    bRect = b.getBoundingClientRect();
+function onCollision(a, b) {
+  aRect = a.getBoundingClientRect();
+  bRect = b.getBoundingClientRect();
 
-    return !((aRect.top >  bRect.bottom) || (aRect.bottom <  bRect.top) ||
-        (aRect.right <  bRect.left) || (aRect.left >  bRect.right)); 
+  return !(
+    aRect.top > bRect.bottom ||
+    aRect.bottom < bRect.top ||
+    aRect.right < bRect.left ||
+    aRect.left > bRect.right
+  );
 }
 
 // move enemy car in game Area
-function moveEnemyCars(){
-    let enemyCars = document.querySelectorAll('.enemyCar');
-    enemyCars.forEach((item)=> {
+function moveEnemyCars() {
+  let enemyCars = document.querySelectorAll(".enemyCar");
+  enemyCars.forEach((item) => {
+    if (onCollision(carElement, item)) {
+      window.open("index.html", "_self");
+    }
+    if (item.y >= 750) {
+      item.y = -300;
+      item.style.left = Math.floor(Math.random() * 350) + "px";
+    }
+    item.y += player.speed;
+    item.style.top = item.y + "px";
+  });
+}
 
-        if(onCollision(carElement, item)){
-            window.open("index.html", "_self");
-        }
-        if(item.y >= 750){
-            item.y = -300;
-            item.style.left = Math.floor(Math.random() * 350) + "px";
-        }
-        item.y += player.speed;
-        item.style.top = item.y + "px";
-    });
-}  
+setInterval(moveEnemyCars, 50);
 
-setInterval(moveEnemyCars , 50)
+// not access to code by ctr+u and RightClick and F12
 
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey || e.keyCode == 123) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+});
 
-
+document.addEventListener("contextmenu", (e) => e.preventDefault(), false);
