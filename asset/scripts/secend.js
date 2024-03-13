@@ -124,15 +124,12 @@ function moveEnemyCars(){
     enemyCars.forEach((item)=> {
 
         if(onCollision(carElement, item)){
-            // window.open("index.html", "_self");
             gameOver.style.display = 'block'
             clearInterval(moveEnemyCars)
             clearInterval(moveRoadLines)
             music.remove()
             gameArea.style.display = 'none'
-          
-            
-
+        
         }
         if(item.y >= 750){
             item.y = -300;
