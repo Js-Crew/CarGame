@@ -5,6 +5,7 @@ easy.addEventListener('click' , ()=> {
 })
 
 
+
 let normal = document.getElementById('normal')
 normal.addEventListener('click' , ()=> {
    window.open("theardex.html", "_blank");

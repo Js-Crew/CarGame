@@ -1,5 +1,11 @@
 // select game Area
 let gameArea = document.getElementById("gameArea");
+let gameOver = document.querySelector('.show')
+let overBtn = document.getElementById('over')
+
+// add music
+let music = new Audio('https://dl.download1music.ir/Music/Sport/music%20Famous%20..%20Seven%20Days%20and%20One%20Week_(download1music.ir).mp3')
+music.play()
 
 
 // define player
@@ -107,7 +113,10 @@ function onCollision(a,b){
     return !((aRect.top >  bRect.bottom) || (aRect.bottom <  bRect.top) ||
         (aRect.right <  bRect.left) || (aRect.left >  bRect.right)); 
 }
-
+// when game over
+overBtn.addEventListener('click' , ()=>{
+  window.open("index.html", "_self");
+})
 // move enemy car in game Area
 function moveEnemyCars(){
     let enemyCars = document.querySelectorAll('.enemyCar');
@@ -115,7 +124,11 @@ function moveEnemyCars(){
 
         if(onCollision(carElement, item)){
         
-            window.open("index.html", "_self");
+          gameOver.style.display = 'block'
+          clearInterval(moveEnemyCars)
+          clearInterval(moveRoadLines)
+          music.remove()
+          gameArea.style.display = 'none'
         }
         if(item.y >= 750){
             item.y = -300;
